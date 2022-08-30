@@ -1,28 +1,4 @@
-.card {
-  width: 500px;
-  max-width: 90%;
-  min-width: 300px;
-  background: #1d1d1d;
-  padding: 30px;
-  border-radius: 20px;
-  text-align: center;
 
-}
-
-.headingWrapper{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-    align-items: center;
-
-
-}
-
-.heading{
-    font-size: 22px;
-    font-weight: bold;
-    margin-left: 10px;
-}
 
 .text{
     font-style: normal;
@@ -46,30 +22,6 @@ color: #C4C5C5;
     margin-top:  5rem;
 }
 
-.button{
-    width: 224px;
-height: 42px;
-left: 609px;
-top: 622px;
-
-/* Blue */
-
-background: #0077FF;
-border-radius: 50px;
-color: #ffff;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-
-.buttonWrapper{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-top: 50px;
-    margin-bottom: 10px;
-}
 
 .loginStyle{
     font-weight: 400;
