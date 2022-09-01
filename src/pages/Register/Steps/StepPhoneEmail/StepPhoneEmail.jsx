@@ -1,10 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Phone from './Phone/Phone'
+import Email from './Email/Email'
+import styles from './StepPhoneEmail.module.css'
 
-const StepPhoneEmail = ({onClick}) => {
+const PhoneEmailMap = {
+  phone: Phone,
+  email: Email
+}
+
+const StepPhoneEmail = ({ onClick }) => {
+  const [phoneEmailToggle, setphoneEmailToggle] = useState("phone");
+  var Toggle = PhoneEmailMap[phoneEmailToggle];
+
+
+
   return (
-    <>
-    <div>StepPhoneEmail</div>
-    <button onClick={onClick}  >Next</button>
+
+    <>        
+    
+     <div className={styles.cardWrapper}>
+      <div className={styles.buttonWrapper} >
+      <button onClick={() => {setphoneEmailToggle("phone")}}>Phone</button>
+      <button onClick={ () => {setphoneEmailToggle("email")}}>email</button>
+      </div>
+      <div><Toggle /></div>
+      <button onClick={onClick}>Next</button>
+    </div>
+
+      
     </>
   )
 }

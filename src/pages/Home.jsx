@@ -25,7 +25,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   function gotoRegister(){
-    navigate('/register')
+    navigate('/authenticate')
  }
   return (
 
@@ -33,11 +33,11 @@ const Home = () => {
       <Card title="Welcome to Coder's House" icon="Logo" >
       <p className={styles.text} >We’re working hard to get Codershouse ready for everyone! While we wrap up the finishing youches, we’re adding people gradually to make sure nothing breaks :)</p>
 
-    <Button text="Get Your User Name" onClick={gotoRegister}></Button>
+    <Button text="Lets Go" onClick={gotoRegister}></Button>
 
 <div  >
   <span>Have an invite text?</span>
-   <Link style={loginStyle}  to={"/login"} > Sign Up </Link>
+   {/* <Link style={loginStyle}  to={"/login"} > Sign Up </Link> */}
 </div>
       </Card>
     </div>
