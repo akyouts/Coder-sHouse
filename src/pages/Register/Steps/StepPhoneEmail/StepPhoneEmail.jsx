@@ -16,18 +16,27 @@ const StepPhoneEmail = ({ onClick }) => {
 
   return (
 
-    <>        
-    
-     <div className={styles.cardWrapper}>
-      <div className={styles.buttonWrapper} >
-      <button onClick={() => {setphoneEmailToggle("phone")}}>Phone</button>
-      <button onClick={ () => {setphoneEmailToggle("email")}}>email</button>
-      </div>
-      <div><Toggle /></div>
-      <button onClick={onClick}>Next</button>
-    </div>
+    <>
 
-      
+      <div className={styles.cardWrapper}>
+        <div>
+
+
+
+          <div className={styles.buttonWrapper} >
+            <button className={phoneEmailToggle === "phone" ? styles.active : styles.tabbutton} onClick={() => { setphoneEmailToggle("phone") }}>
+              <img src="./images/MobileIcon.png" alt="" />
+            </button>
+            <button className={phoneEmailToggle === "email" ? styles.active : styles.tabbutton} onClick={() => { setphoneEmailToggle("email") }}>
+              <img src="./images/Envelop.png" alt="" /></button>
+          </div>
+          <div><Toggle onClick={onClick} /></div>
+
+
+        </div>
+      </div>
+
+
     </>
   )
 }

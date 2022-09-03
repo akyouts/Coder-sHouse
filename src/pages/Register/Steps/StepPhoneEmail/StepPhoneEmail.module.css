@@ -5,5 +5,35 @@
 }
 
 .buttonWrapper{
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+   margin-bottom: 20px;
+}
 
+.tabbutton{
+   height: 60px;
+   width: 60px;
+   background: #262626;
+   border: none;
+   outline: none;
+   border-radius: 10px;
+
+}
+
+.tabbutton:last-child {
+   margin-left: 20px;
+}
+
+.active{
+   height: 60px;
+   width: 60px;
+   border: none;
+   outline: none;
+   border-radius: 10px;
+   background: #0077FF;
+}
+
+.active:last-child {
+   margin-left: 20px;
 }
