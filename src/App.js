@@ -1,10 +1,9 @@
-import logo from './logo.svg';
+
 import './App.css';
 import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
 import Home from './pages/Home';
 import Navigation from './components/shared/Navigation';
-import Register from './pages/Register/Register';
-import Login from './pages/Login/Login';
+
 import Authenticate from './pages/Authenticate/Authenticate';
 import Activate from './pages/Activate/Activate';
 import Rooms from './pages/Rooms/Rooms';
