@@ -20,7 +20,10 @@
 .avatarImg{
     height: 90%;
     width: 90%;
-    object-fit: cover;
+    border-radius: 50%;
+    
+    border-color: #0077FF;
+    border-width: thick;
 }
 
 .avatarInput{
