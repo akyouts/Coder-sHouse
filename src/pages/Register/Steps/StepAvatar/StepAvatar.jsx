@@ -7,6 +7,8 @@ import { useSelector,useDispatch } from 'react-redux'
 import { render } from 'react-dom'
 import {setAvatar} from '../../../../store/activateSlice'
 import { activate } from '../../../../http'
+import { setAuth } from '../../../../store/authSclice'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -16,7 +18,7 @@ import { activate } from '../../../../http'
 
 const StepAvatar = ({onClick}) => {
 
-  
+  const navigate = useNavigate();
   const [imageAvatar, setavatar] = useState('./images/Photo.png');
   const dispatch = useDispatch()
   
@@ -33,12 +35,22 @@ const StepAvatar = ({onClick}) => {
     
   }
 
+  
   const submit = async () =>{
-try {
-    const { data } = await avatar({ name , avatar });
-} catch (error) {
-    console.log(error);
-}
+    try {
+      console.log("Running");
+        const { data } = await activate({ name , avatar });
+        if(data.auth){
+          dispatch(setAuth(data))
+          navigate('/rooms')
+        }
+        
+        
+
+    } catch (error) {
+        console.log(error);
+    }
+  
   }
   return (
     <>
