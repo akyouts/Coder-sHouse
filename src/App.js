@@ -8,14 +8,22 @@ import Authenticate from './pages/Authenticate/Authenticate';
 import Activate from './pages/Activate/Activate';
 import Rooms from './pages/Rooms/Rooms';
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useLoadingWithRefresh } from './hooks/useLoadingWithRefresh';
+import Card from './components/shared/Cards/Card';
+
 var isAuth = false;
 var isActivate = false;
 
 function App() {
+  const { Loading } = useLoadingWithRefresh();
+  
 
+  
 
     return (
-        <BrowserRouter>
+        Loading? <Loader message='Loding Please Wait'/>: 
+        (<BrowserRouter>
             <Navigation/>
             <Routes>
                 <Route path='/'
@@ -43,7 +51,7 @@ function App() {
 
 
 
-        </BrowserRouter>
+        </BrowserRouter>)
     );
 }
 

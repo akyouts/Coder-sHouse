@@ -9,6 +9,7 @@ import {setAvatar} from '../../../../store/activateSlice'
 import { activate } from '../../../../http'
 import { setAuth } from '../../../../store/authSclice'
 import { useNavigate } from 'react-router-dom'
+import Loader from '../../../../components/shared/Loader/Loader'
 
 
 
@@ -17,6 +18,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 const StepAvatar = ({onClick}) => {
+  const [Loading,setLoading] = useState(false);
 
   const navigate = useNavigate();
   const [imageAvatar, setavatar] = useState('./images/Photo.png');
@@ -38,9 +40,11 @@ const StepAvatar = ({onClick}) => {
   
   const submit = async () =>{
     try {
-      console.log("Running");
-        const { data } = await activate({ name , avatar });
+        setLoading(true)
+        const {data}  = await activate({ name , avatar });
+        console.log(data);
         if(data.auth){
+          console.log(data)
           dispatch(setAuth(data))
           navigate('/rooms')
         }
@@ -49,11 +53,13 @@ const StepAvatar = ({onClick}) => {
 
     } catch (error) {
         console.log(error);
+    } finally {
+      setLoading(false);
     }
   
   }
   return (
-    <>
+    Loading?<Loader/>:(<>
     <div className={styles.cardWrapper} >
         <Card title={`Okay, ${name}!`} icon="Monkey" >
         <p style={{marginTop:"1px" , marginBottom:"20px"}}>How's This Photo</p>
@@ -71,7 +77,7 @@ const StepAvatar = ({onClick}) => {
     </Card>
 
     </div>
-    </>
+    </>)
   )
 }
 
