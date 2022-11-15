@@ -17,9 +17,11 @@ export const authSlice = createSlice({
   reducers: {
     setAuth: (state,action) => {
       const { user} = action.payload
-      if(user === null){
+      console.log(user)
+      if(user == null){
+        console.log("Runnign");
         state.isAuth = false;
-        state.user = user;
+        state.user.name = '' ;
         state.isActivate = '';
       }else{
         state.isAuth = true;

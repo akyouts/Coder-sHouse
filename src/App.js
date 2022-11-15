@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { useLoadingWithRefresh } from './hooks/useLoadingWithRefresh';
 import Card from './components/shared/Cards/Card';
+import { Loader } from './components/shared/Loader/Loader';
 
 var isAuth = false;
 var isActivate = false;

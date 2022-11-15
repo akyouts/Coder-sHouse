@@ -18,6 +18,7 @@ const StepOtp = ({onClick}) => {
 
   async  function submit(){
       try {
+        if(!otp) return
         const { data } =await verifyOtp({ Otp:otp,Phone:phone,Hash:hash })
         console.log(data);
         dispatch(setAuth(data));

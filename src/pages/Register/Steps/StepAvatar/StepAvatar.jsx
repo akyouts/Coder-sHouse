@@ -9,7 +9,7 @@ import {setAvatar} from '../../../../store/activateSlice'
 import { activate } from '../../../../http'
 import { setAuth } from '../../../../store/authSclice'
 import { useNavigate } from 'react-router-dom'
-import Loader from '../../../../components/shared/Loader/Loader'
+import { Loader } from '../../../../components/shared/Loader/Loader'
 
 
 
@@ -46,6 +46,7 @@ const StepAvatar = ({onClick}) => {
         if(data.auth){
           console.log(data)
           dispatch(setAuth(data))
+          setLoading(false);
           navigate('/rooms')
         }
         
@@ -58,8 +59,10 @@ const StepAvatar = ({onClick}) => {
     }
   
   }
+
+  if(Loading) return <Loader message={"Activation in Progress"}/>
   return (
-    Loading?<Loader/>:(<>
+   <>
     <div className={styles.cardWrapper} >
         <Card title={`Okay, ${name}!`} icon="Monkey" >
         <p style={{marginTop:"1px" , marginBottom:"20px"}}>How's This Photo</p>
@@ -77,7 +80,7 @@ const StepAvatar = ({onClick}) => {
     </Card>
 
     </div>
-    </>)
+    </>
   )
 }
 

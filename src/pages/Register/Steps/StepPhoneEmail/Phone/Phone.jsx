@@ -12,6 +12,7 @@ const Phone = ({onClick}) => {
 
 
   const onsubmit = async () =>{
+       if(!phoneNumber) return
    
         const otpReq = await sendOtp({Phone:phoneNumber});
         const data = otpReq.data;
