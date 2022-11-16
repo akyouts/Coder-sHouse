@@ -1,5 +1,57 @@
 import React from 'react'
+import RoomCard from '../../components/Room/RoomCard'
 import styles from './Rooms.module.css'
+
+const Dummy = [{
+  id:1,
+  topic:"Which Frame Work is best for Fe",
+  speaker:[{
+      id:1,
+      name:'Ahad',
+      avatar:'/images/Monkey.png'
+  },
+  {
+      id:1,
+      name:'Ahad',
+      avatar:'/images/Monkey.png'
+  },
+  {
+      id:1,
+      name:'Ahad',
+      avatar:'/images/Monkey.png'
+  },
+  
+
+
+  ],
+  totalPeople:40
+
+},
+{
+  id:1,
+  topic:"Which Frame Work is best for Fe",
+  speaker:[{
+      id:1,
+      name:'Ahad',
+      avatar:'/images/Monkey.png'
+  },
+  {
+      id:1,
+      name:'Ahad',
+      avatar:'/images/Monkey.png'
+  },
+  {
+      id:1,
+      name:'Ahad',
+      avatar:'/images/Monkey.png'
+  }
+  
+
+
+  ],
+  totalPeople:40
+}
+]
 
 const Rooms = () => {
   return (
@@ -20,7 +72,14 @@ const Rooms = () => {
           </button>
         </div>
       </div>
-      <div className={styles.RoomsList} ></div>
+      <div className={styles.roomsList} >
+         
+      { Dummy.map((room)=>{
+        
+        return <RoomCard key={room.id} room={room} />
+      }) }
+
+      </div>
     </div>
     </>
   )
