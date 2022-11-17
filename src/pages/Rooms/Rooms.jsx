@@ -1,4 +1,6 @@
 import React from 'react'
+import { useState } from 'react'
+import AddRoomModal from '../../components/AddRoomModal/AddRoomModal'
 import RoomCard from '../../components/Room/RoomCard'
 import styles from './Rooms.module.css'
 
@@ -54,6 +56,13 @@ const Dummy = [{
 ]
 
 const Rooms = () => {
+   
+  const [showModal,setshowModal] = useState(false);
+
+  const openModal = () =>{
+      setshowModal(true)
+  }
+  
   return (
     <>
     <div className={styles.container}>
@@ -66,7 +75,7 @@ const Rooms = () => {
           </div>
         </div>
         <div className={styles.right}>
-          <button className={styles.startRoomButton} >
+          <button onClick={openModal} className={styles.startRoomButton} >
             <img src="/images/start-room.png" alt="" />
             <span >Start a Room </span>
           </button>
@@ -81,6 +90,8 @@ const Rooms = () => {
 
       </div>
     </div>
+
+    {showModal  && <AddRoomModal/>}
     </>
   )
 }
