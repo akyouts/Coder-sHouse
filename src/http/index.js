@@ -30,6 +30,10 @@ export const logout = async ()=>{
     return await api.post('/api/logout');
 }
 
+export const createRoom = async()=>{
+    return await api.post('/api/room'.data);
+}
+
 
 api.interceptors.response.use((config)=>{
     return config

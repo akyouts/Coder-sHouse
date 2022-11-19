@@ -62,6 +62,10 @@ const Rooms = () => {
   const openModal = () =>{
       setshowModal(true)
   }
+
+  const onClose = ()=>{
+        setshowModal(false)
+  }
   
   return (
     <>
@@ -91,7 +95,7 @@ const Rooms = () => {
       </div>
     </div>
 
-    {showModal  && <AddRoomModal/>}
+    {showModal  && <AddRoomModal onClose={onClose}/>}
     </>
   )
 }
