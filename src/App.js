@@ -12,6 +12,7 @@ import { useState } from 'react';
 import { useLoadingWithRefresh } from './hooks/useLoadingWithRefresh';
 import Card from './components/shared/Cards/Card';
 import { Loader } from './components/shared/Loader/Loader';
+import { Room } from './pages/Room/Room';
 
 var isAuth = false;
 var isActivate = false;
@@ -44,6 +45,14 @@ function App() {
                 element={
                   <PrivtaeRoute>
                     <Rooms/>
+
+                  </PrivtaeRoute>
+                }
+                />    
+                <Route path='/room/:id' 
+                element={
+                  <PrivtaeRoute>
+                    <Room/>
 
                   </PrivtaeRoute>
                 }

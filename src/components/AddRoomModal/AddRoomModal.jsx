@@ -3,11 +3,13 @@ import { useState } from 'react'
 import TextInput from '../shared/TextInput/TextInput'
 import styles from './AddRoomModal.module.css'
 import { createRoom as create } from '../../http'
+import { useNavigate } from 'react-router-dom'
 
 const AddRoomModal = ({ onClose }) => {
 
   const [roomType,setRommType]=useState('open')
   const [topic,setTopic] =useState('')
+  const navigate = useNavigate();
 
   const createRoom = async () =>{
     // Api request to create Room.
@@ -18,6 +20,8 @@ const AddRoomModal = ({ onClose }) => {
       return
 
       const {data} = await create({ topic , roomType  })
+      navigate(`/room/${data.id}`);
+      
       
     } catch (error) {
       console.log(error)

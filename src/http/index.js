@@ -30,8 +30,12 @@ export const logout = async ()=>{
     return await api.post('/api/logout');
 }
 
-export const createRoom = async()=>{
-    return await api.post('/api/room'.data);
+export const createRoom = async(data)=>{
+    return await api.post('/api/room',data);
+}
+
+export const getAllRooms = async()=>{
+    return await api.get('/api/room')
 }
 
 

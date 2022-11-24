@@ -1,61 +1,25 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { useState } from 'react'
 import AddRoomModal from '../../components/AddRoomModal/AddRoomModal'
 import RoomCard from '../../components/Room/RoomCard'
 import styles from './Rooms.module.css'
-
-const Dummy = [{
-  id:1,
-  topic:"Which Frame Work is best for Fe",
-  speaker:[{
-      id:1,
-      name:'Ahad',
-      avatar:'/images/Monkey.png'
-  },
-  {
-      id:1,
-      name:'Ahad',
-      avatar:'/images/Monkey.png'
-  },
-  {
-      id:1,
-      name:'Ahad',
-      avatar:'/images/Monkey.png'
-  },
-  
+import { getAllRooms } from '../../http'
 
 
-  ],
-  totalPeople:40
-
-},
-{
-  id:1,
-  topic:"Which Frame Work is best for Fe",
-  speaker:[{
-      id:1,
-      name:'Ahad',
-      avatar:'/images/Monkey.png'
-  },
-  {
-      id:1,
-      name:'Ahad',
-      avatar:'/images/Monkey.png'
-  },
-  {
-      id:1,
-      name:'Ahad',
-      avatar:'/images/Monkey.png'
-  }
-  
-
-
-  ],
-  totalPeople:40
-}
-]
 
 const Rooms = () => {
+
+  const [rooms, setRooms] = useState([])
+  useEffect( ()=>{
+       const getRooms = async () =>{
+        const { data } = await getAllRooms();
+       setRooms(data.Rooms) ;
+       }
+       getRooms()
+
+       
+  },[])
    
   const [showModal,setshowModal] = useState(false);
 
@@ -69,6 +33,7 @@ const Rooms = () => {
   
   return (
     <>
+    { console.log(rooms) }
     <div className={styles.container}>
       <div className={styles.roomsHeader}>
         <div className={styles.left} >
@@ -87,7 +52,7 @@ const Rooms = () => {
       </div>
       <div className={styles.roomsList} >
          
-      { Dummy.map((room)=>{
+      { rooms.map((room)=>{
         
         return <RoomCard key={room.id} room={room} />
       }) }
